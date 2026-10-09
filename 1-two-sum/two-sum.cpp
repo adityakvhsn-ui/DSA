@@ -8,14 +8,19 @@ public:
             ans.push_back({nums[i],i});
         }
         sort(ans.begin(),ans.end());
-        int left=0,right=n-1;
+        int left=0;
+        int right=n-1;
         while(right>left)
         {
             int sum=ans[left].first+ans[right].first;
             if(sum==target)
-            return {ans[left].second,ans[right].second};
+            {
+                return {ans[left].second,ans[right].second};
+            }
             else if(sum>target)
-            right--;
+            {
+                right--;
+            }
             else
             left++;
         }
